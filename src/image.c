@@ -207,7 +207,7 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
             }
 
             //printf("%d %s: %.0f%%\n", i, names[class], prob*100);
-            printf("%s: %.0f%%\n", names[class], prob*100);
+            printf("%s:%.0f%%:", names[class], prob*100);
             int offset = class*123457 % classes;
             float red = get_color(2,offset,classes);
             float green = get_color(1,offset,classes);
@@ -237,6 +237,8 @@ void draw_detections(image im, int num, float thresh, box *boxes, float **probs,
                 draw_label(im, top + width, left, label, rgb);
                 free_image(label);
             }
+            printf("%d:%d:%d:%d:%d:%d\n", left, right, top, bot, im.w, im.h);
+            
         }
     }
 }
