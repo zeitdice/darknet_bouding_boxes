@@ -252,7 +252,8 @@ void draw_detections(image im, detection *dets, int num, float thresh, char **na
                     strcat(labelstr, ", ");
                     strcat(labelstr, names[j]);
                 }
-                printf("%s: %.0f%%\n", names[j], dets[i].prob[j]*100);
+                //printf("%s: %.0f%%\n", names[j], dets[i].prob[j]*100);
+                printf("%s:%.0f%%", names[j], dets[i].prob[j]*100);
             }
         }
         if(class >= 0){
@@ -305,6 +306,7 @@ void draw_detections(image im, detection *dets, int num, float thresh, char **na
                 free_image(resized_mask);
                 free_image(tmask);
             }
+            printf("%d:%d:%d:%d:%d:%d\n", left, right, top, bot, im.w, im.h);
         }
     }
 }
